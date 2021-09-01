@@ -1,6 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './Header';
 import { RoomInput } from './RoomInput';
 import { createRoom, joinRoom } from '../utils/opentok/opentok';
 

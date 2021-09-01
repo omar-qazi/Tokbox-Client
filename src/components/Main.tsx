@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { MemoryRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import { Global } from '../state/Global';
 import { MeetingRoom } from './MeetingRoom';
