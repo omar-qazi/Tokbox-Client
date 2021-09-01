@@ -6,15 +6,17 @@ import env from 'react-dotenv';
 
 interface props {}
 
-export const Video: React.FC<props> = () => {
+export const MeetingRoom: React.FC<props> = () => {
   const global = useContext(GlobalContext);
   const apiKey = env.OPENTOK_API_KEY;
 
   return global.data.sessionStatus === 'ok' ? (
-    <div className="bg-purple-50">
-      <div className="bg-purple-100 w-full h-1 mt-2"></div>
-      <div className="mt-4 mb-4 text-center">
-        <h1 className="text-purple-900 text-2xl">{global.data.roomName}</h1>
+    <div className="bg-purple-50 flex-auto">
+      {/* <div className="bg-purple-100 w-full h-1 mt-2"></div> */}
+      <div className="mb-2 text-center">
+        <h1 className="mt-4 text-purple-900 text-2xl">
+          {` ${global.data.roomName}`}
+        </h1>
       </div>
       <div className="flex justify-around">
         <OTSession
@@ -35,9 +37,9 @@ export const Video: React.FC<props> = () => {
         </OTSession>
       </div>
 
-      <div className="bg-purple-100 w-full h-1 mt-4"></div>
+      {/* <div className="bg-purple-100 w-full h-1 mt-4"></div> */}
     </div>
   ) : (
-    <div></div>
+    <div className="bg-purple-50 flex-auto"></div>
   );
 };

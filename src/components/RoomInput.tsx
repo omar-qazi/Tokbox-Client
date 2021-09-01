@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { GlobalContext, ISessionData } from '../state/GlobalContext';
 
 interface InputProps {
@@ -21,7 +22,7 @@ export const RoomInput: React.FC<InputProps> = ({
 
   return (
     <div className="flex items-end justify-center mb-8">
-      <div className="w-96 flex flex-col mr-4">
+      <div className="md:w-96 w-52 flex flex-col mr-4">
         <label htmlFor="hero-field" className="leading-7 text-sm text-gray-600">
           {placeholder}
         </label>
@@ -35,23 +36,25 @@ export const RoomInput: React.FC<InputProps> = ({
         />
       </div>
       <div className="w-28">
-        <button
-          className="w-full text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg"
-          onClick={async () => {
-            if (sessionId !== '') {
-              const session = await callback(sessionId);
-              global.setData({
-                sessionId: session.sessionId,
-                sessionToken: session.sessionToken,
-                sessionStatus: session.sessionStatus,
-                roomName: sessionId,
-              });
-              setSessionId('');
-            }
-          }}
-        >
-          {buttonText}
-        </button>
+        <Link to="room">
+          <button
+            className="w-full text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg"
+            onClick={async () => {
+              if (sessionId !== '') {
+                const session = await callback(sessionId);
+                global.setData({
+                  sessionId: session.sessionId,
+                  sessionToken: session.sessionToken,
+                  sessionStatus: session.sessionStatus,
+                  roomName: sessionId,
+                });
+                setSessionId('');
+              }
+            }}
+          >
+            {buttonText}
+          </button>
+        </Link>
       </div>
     </div>
   );

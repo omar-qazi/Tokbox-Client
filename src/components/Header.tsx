@@ -20,7 +20,7 @@ export default function Header() {
           </nav>
           <button
             className="inline-flex items-center text-white bg-purple-500 hover:bg-purple-600 border-0 py-1 px-6 focus:outline-none  rounded text-base mt-4 md:mt-0"
-            onClick={() => window.close()}
+            onClick={(e) => window.close()}
           >
             LEAVE
             <svg
