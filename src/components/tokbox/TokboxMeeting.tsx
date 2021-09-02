@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
-
 import { GlobalContext } from '../../state/GlobalContext';
 import env from 'react-dotenv';
 
